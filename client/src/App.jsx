@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { CartProvider } from './context/CartContext';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -13,9 +14,10 @@ import Cart from './pages/Cart';
 function App() {
   return (
     <AuthProvider>
-      <Router>
-        <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
-          <Navbar />
+      <CartProvider>
+        <Router>
+          <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
+            <Navbar />
           
           <main className="container mx-auto px-4 py-8">
             <Routes>
@@ -46,7 +48,8 @@ function App() {
             </Routes>
           </main>
         </div>
-      </Router>
+        </Router>
+      </CartProvider>
     </AuthProvider>
   );
 }
