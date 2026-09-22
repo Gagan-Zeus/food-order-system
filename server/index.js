@@ -16,9 +16,11 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // Routes
 const authRoutes = require('./routes/auth');
 const menuRoutes = require('./routes/menu');
+const orderRoutes = require('./routes/orders');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/menu', menuRoutes);
+app.use('/api/orders', orderRoutes);
 
 // Root Endpoint
 app.get('/', (req, res) => {
